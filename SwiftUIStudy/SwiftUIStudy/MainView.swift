@@ -97,11 +97,7 @@ struct MainView: View {
                     HStack {
                         ForEach(line, id: \.self) { row in
                             Button {
-                                if totalNumber == "0" {
-                                    totalNumber = "7"
-                                } else {
-                                    totalNumber += "7"
-                                }
+                                // TODO: 버튼 계산 로직 구현
                             } label: {
                                 Text(row.buttonName)
                                     .frame(width: row == .zero ? 160 : 80 , height: 80)
