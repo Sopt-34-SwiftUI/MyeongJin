@@ -70,7 +70,7 @@ struct ContentView: View {
                     } label: {
                         Text("7")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -80,7 +80,7 @@ struct ContentView: View {
                     } label: {
                         Text("8")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -90,7 +90,7 @@ struct ContentView: View {
                     } label: {
                         Text("9")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -113,7 +113,7 @@ struct ContentView: View {
                     } label: {
                         Text("4")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -123,7 +123,7 @@ struct ContentView: View {
                     } label: {
                         Text("5")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -133,7 +133,7 @@ struct ContentView: View {
                     } label: {
                         Text("6")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -156,7 +156,7 @@ struct ContentView: View {
                     } label: {
                         Text("1")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -166,7 +166,7 @@ struct ContentView: View {
                     } label: {
                         Text("2")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -176,7 +176,7 @@ struct ContentView: View {
                     } label: {
                         Text("3")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -199,7 +199,7 @@ struct ContentView: View {
                     } label: {
                         Text("0")
                             .frame(width: 165, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
@@ -209,7 +209,7 @@ struct ContentView: View {
                     } label: {
                         Text(".")
                             .frame(width: 80, height: 80)
-                            .background(.gray)
+                            .background(Color.numberButtom)
                             .cornerRadius(40)
                             .foregroundColor(.white)
                             .font(.system(size: 33))
