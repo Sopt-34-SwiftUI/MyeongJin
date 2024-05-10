@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var totalNumber: String = "0"
+    
+    
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
@@ -16,7 +20,7 @@ struct ContentView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Text("331.454")
+                    Text(totalNumber)
                         .padding()
                         .font(.system(size: 73))
                         .foregroundColor(.white)
@@ -66,7 +70,7 @@ struct ContentView: View {
                 }
                 HStack {
                     Button {
-                        
+                        totalNumber += "7"
                     } label: {
                         Text("7")
                             .frame(width: 80, height: 80)
