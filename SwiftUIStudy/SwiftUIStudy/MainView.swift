@@ -183,6 +183,10 @@ struct MainView: View {
     }
     
     private func handleClearPress() {
+        totalNumber = "0"
+        previousNumber = ""
+        operation = nil
+        inTheMiddleOfTyping = false
     }
     
     private func handleReversePress() {
