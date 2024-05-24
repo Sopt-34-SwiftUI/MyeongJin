@@ -51,7 +51,7 @@ enum ButtonStyle: String {
         case .reverse:
             return "+/-"
         case .clear:
-            return "C"
+            return "AC"
         }
     }
     
@@ -65,11 +65,23 @@ enum ButtonStyle: String {
             return Color.gray
         }
     }
+    
+    var foreground: Color {
+        switch self {
+        case .first, .second, .third, .forth, .fifth, .sixth, .seventh, .eighth, .nineth, .zero, .comma, .equal, .plus, .minus, .multiple, .divide:
+            return Color.white
+        case .percent, .reverse, .clear:
+            return Color.black
+        }
+    }
 }
 
 struct MainView: View {
     
     @State private var totalNumber: String = "0"
+    @State private var previousNumber: String = ""
+    @State private var operation: ButtonStyle?
+    @State private var inTheMiddleOfTyping = false
     
     private let buttonData: [[ButtonStyle]] = [
         [.clear, .reverse, .percent, .divide],
@@ -78,7 +90,6 @@ struct MainView: View {
         [.first, .second, .third, .plus],
         [.zero, .comma, .equal]
     ]
-    
     
     var body: some View {
         ZStack {
@@ -97,13 +108,13 @@ struct MainView: View {
                     HStack {
                         ForEach(line, id: \.self) { row in
                             Button {
-                                // TODO: 버튼 계산 로직 구현
+                                handleButtonPress(row)
                             } label: {
                                 Text(row.buttonName)
                                     .frame(width: row == .zero ? 160 : 80 , height: 80)
                                     .background(row.buttonColor)
                                     .cornerRadius(40)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(row.foreground)
                                     .font(.system(size: 33))
                             }
                         }
@@ -111,6 +122,44 @@ struct MainView: View {
                 }
             }
         }
+    }
+    
+    private func handleButtonPress(_ button: ButtonStyle) {
+        switch button {
+        case .first, .second, .third, .forth, .fifth, .sixth, .seventh, .eighth, .nineth, .zero, .comma:
+            handleNumberPress(button)
+        case .plus, .minus, .multiple, .divide:
+            handleOperationPress(button)
+        case .equal:
+            handleEqualPress()
+        case .clear:
+            handleClearPress()
+        case .reverse:
+            handleReversePress()
+        case .percent:
+            handlePercentPress()
+        }
+    }
+    
+    private func handleNumberPress(_ button: ButtonStyle) {
+
+    }
+    
+    private func handleOperationPress(_ button: ButtonStyle) {
+
+    }
+    
+    private func handleEqualPress() {
+
+    }
+    
+    private func handleClearPress() {
+    }
+    
+    private func handleReversePress() {
+    }
+    
+    private func handlePercentPress() {
     }
 }
 
