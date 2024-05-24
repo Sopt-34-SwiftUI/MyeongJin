@@ -142,7 +142,13 @@ struct MainView: View {
     }
     
     private func handleNumberPress(_ button: ButtonStyle) {
-
+        let number = button.buttonName
+        if inTheMiddleOfTyping {
+            totalNumber += number
+        } else {
+            totalNumber = number
+            inTheMiddleOfTyping = true
+        }
     }
     
     private func handleOperationPress(_ button: ButtonStyle) {
