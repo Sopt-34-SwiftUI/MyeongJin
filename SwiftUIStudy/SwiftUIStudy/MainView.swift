@@ -152,7 +152,9 @@ struct MainView: View {
     }
     
     private func handleOperationPress(_ button: ButtonStyle) {
-
+        previousNumber = totalNumber
+        operation = button
+        inTheMiddleOfTyping = false
     }
     
     private func handleEqualPress() {
