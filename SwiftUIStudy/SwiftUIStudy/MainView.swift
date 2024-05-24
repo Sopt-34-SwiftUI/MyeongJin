@@ -158,7 +158,9 @@ struct MainView: View {
     }
     
     private func handleEqualPress() {
-        guard let operation = operation, let previousValue = Double(previousNumber), let currentValue = Double(totalNumber) else {
+        guard let operation = operation,
+              let previousValue = Double(previousNumber),
+              let currentValue = Double(totalNumber) else {
             return
         }
         
@@ -177,10 +179,18 @@ struct MainView: View {
             break
         }
         
-        totalNumber = String(result)
+        // 데이터 포맷을 수정하는 로직을 추가 합니다.
+        if result.truncatingRemainder(dividingBy: 1) == 0 {
+            totalNumber = String(format: "%.0f", result)
+        } else {
+            // 소숫점 6자리까지 보이게 합니다.
+            totalNumber = String(format: "%.6f", result)
+        }
+        
         self.operation = nil
         inTheMiddleOfTyping = false
     }
+
     
     private func handleClearPress() {
         totalNumber = "0"
