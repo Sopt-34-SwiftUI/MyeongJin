@@ -158,7 +158,28 @@ struct MainView: View {
     }
     
     private func handleEqualPress() {
-
+        guard let operation = operation, let previousValue = Double(previousNumber), let currentValue = Double(totalNumber) else {
+            return
+        }
+        
+        var result: Double = 0
+        
+        switch operation {
+        case .plus:
+            result = previousValue + currentValue
+        case .minus:
+            result = previousValue - currentValue
+        case .multiple:
+            result = previousValue * currentValue
+        case .divide:
+            result = previousValue / currentValue
+        default:
+            break
+        }
+        
+        totalNumber = String(result)
+        self.operation = nil
+        inTheMiddleOfTyping = false
     }
     
     private func handleClearPress() {
