@@ -190,9 +190,15 @@ struct MainView: View {
     }
     
     private func handleReversePress() {
+        if let value = Double(totalNumber) {
+            totalNumber = String(value * -1)
+        }
     }
     
     private func handlePercentPress() {
+        if let value = Double(totalNumber) {
+            totalNumber = String(value / 100)
+        }
     }
 }
 
