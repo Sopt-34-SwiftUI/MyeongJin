@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		716731D72BEE4B2400041F35 /* SwiftUIStudyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716731D62BEE4B2400041F35 /* SwiftUIStudyApp.swift */; };
-		716731D92BEE4B2400041F35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716731D82BEE4B2400041F35 /* MainView.swift */; };
+		710EF54A2C09CB2800235476 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710EF5492C09CB2800235476 /* ButtonStyle.swift */; };
+		710EF54D2C09D21500235476 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 710EF54C2C09D21500235476 /* ComposableArchitecture */; };
+		710EF54F2C09D32000235476 /* CalculatorFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710EF54E2C09D32000235476 /* CalculatorFeature.swift */; };
+		716731D72BEE4B2400041F35 /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716731D62BEE4B2400041F35 /* CalculatorApp.swift */; };
+		716731D92BEE4B2400041F35 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716731D82BEE4B2400041F35 /* CalculatorView.swift */; };
 		716731DB2BEE4B2500041F35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 716731DA2BEE4B2500041F35 /* Assets.xcassets */; };
 		716731DE2BEE4B2500041F35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 716731DD2BEE4B2500041F35 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		710EF5492C09CB2800235476 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		710EF54E2C09D32000235476 /* CalculatorFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorFeature.swift; sourceTree = "<group>"; };
 		716731D32BEE4B2400041F35 /* SwiftUIStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		716731D62BEE4B2400041F35 /* SwiftUIStudyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIStudyApp.swift; sourceTree = "<group>"; };
-		716731D82BEE4B2400041F35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		716731D62BEE4B2400041F35 /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
+		716731D82BEE4B2400041F35 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		716731DA2BEE4B2500041F35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		716731DD2BEE4B2500041F35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -26,12 +31,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				710EF54D2C09D21500235476 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		710EF5502C09E52400235476 /* CalculatorApp */ = {
+			isa = PBXGroup;
+			children = (
+				716731DC2BEE4B2500041F35 /* Preview Content */,
+				716731D62BEE4B2400041F35 /* CalculatorApp.swift */,
+				716731D82BEE4B2400041F35 /* CalculatorView.swift */,
+				710EF54E2C09D32000235476 /* CalculatorFeature.swift */,
+			);
+			path = CalculatorApp;
+			sourceTree = "<group>";
+		};
+		710EF5512C09E58700235476 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				716731DA2BEE4B2500041F35 /* Assets.xcassets */,
+				710EF5492C09CB2800235476 /* ButtonStyle.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		716731CA2BEE4B2400041F35 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +77,8 @@
 		716731D52BEE4B2400041F35 /* SwiftUIStudy */ = {
 			isa = PBXGroup;
 			children = (
-				716731D62BEE4B2400041F35 /* SwiftUIStudyApp.swift */,
-				716731D82BEE4B2400041F35 /* MainView.swift */,
-				716731DA2BEE4B2500041F35 /* Assets.xcassets */,
-				716731DC2BEE4B2500041F35 /* Preview Content */,
+				710EF5512C09E58700235476 /* Resource */,
+				710EF5502C09E52400235476 /* CalculatorApp */,
 			);
 			path = SwiftUIStudy;
 			sourceTree = "<group>";
@@ -83,6 +107,9 @@
 			dependencies = (
 			);
 			name = SwiftUIStudy;
+			packageProductDependencies = (
+				710EF54C2C09D21500235476 /* ComposableArchitecture */,
+			);
 			productName = SwiftUIStudy;
 			productReference = 716731D32BEE4B2400041F35 /* SwiftUIStudy.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +138,9 @@
 				Base,
 			);
 			mainGroup = 716731CA2BEE4B2400041F35;
+			packageReferences = (
+				710EF54B2C09D21500235476 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 716731D42BEE4B2400041F35 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				716731D92BEE4B2400041F35 /* MainView.swift in Sources */,
-				716731D72BEE4B2400041F35 /* SwiftUIStudyApp.swift in Sources */,
+				710EF54F2C09D32000235476 /* CalculatorFeature.swift in Sources */,
+				710EF54A2C09CB2800235476 /* ButtonStyle.swift in Sources */,
+				716731D92BEE4B2400041F35 /* CalculatorView.swift in Sources */,
+				716731D72BEE4B2400041F35 /* CalculatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +303,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIStudy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIStudy/CalculatorApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 8Q4H7X3Q58;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -300,7 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIStudy/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIStudy/CalculatorApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 8Q4H7X3Q58;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -344,6 +376,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		710EF54B2C09D21500235476 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		710EF54C2C09D21500235476 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 710EF54B2C09D21500235476 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 716731CB2BEE4B2400041F35 /* Project object */;
 }
