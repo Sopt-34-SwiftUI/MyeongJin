@@ -21,29 +21,31 @@ struct MainView: View {
     ]
     
     var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
-            VStack {
-                Spacer()
-                HStack {
+        WithPerceptionTracking {
+            ZStack {
+                Color.black.ignoresSafeArea()
+                VStack {
                     Spacer()
-                    Text(store.totalNumber)
-                        .padding()
-                        .font(.system(size: 73))
-                        .foregroundColor(.white)
-                }
-                ForEach(buttonData, id: \.self) { line in
                     HStack {
-                        ForEach(line, id: \.self) { row in
-                            Button {
-                                handleButtonPress(row, store: store)
-                            } label: {
-                                Text(row.buttonName)
-                                    .frame(width: row == .zero ? 160 : 80 , height: 80)
-                                    .background(row.buttonColor)
-                                    .cornerRadius(40)
-                                    .foregroundColor(row.foreground)
-                                    .font(.system(size: 33))
+                        Spacer()
+                        Text(store.totalNumber)
+                            .padding()
+                            .font(.system(size: 73))
+                            .foregroundColor(.white)
+                    }
+                    ForEach(buttonData, id: \.self) { line in
+                        HStack {
+                            ForEach(line, id: \.self) { row in
+                                Button {
+                                    handleButtonPress(row, store: store)
+                                } label: {
+                                    Text(row.buttonName)
+                                        .frame(width: row == .zero ? 160 : 80 , height: 80)
+                                        .background(row.buttonColor)
+                                        .cornerRadius(40)
+                                        .foregroundColor(row.foreground)
+                                        .font(.system(size: 33))
+                                }
                             }
                         }
                     }
