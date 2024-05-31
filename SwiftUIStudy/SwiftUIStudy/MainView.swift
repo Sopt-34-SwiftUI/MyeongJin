@@ -51,7 +51,7 @@ enum ButtonStyle: String {
         case .reverse:
             return "+/-"
         case .clear:
-            return "C"
+            return "AC"
         }
     }
     
@@ -65,11 +65,23 @@ enum ButtonStyle: String {
             return Color.gray
         }
     }
+    
+    var foreground: Color {
+        switch self {
+        case .first, .second, .third, .forth, .fifth, .sixth, .seventh, .eighth, .nineth, .zero, .comma, .equal, .plus, .minus, .multiple, .divide:
+            return Color.white
+        case .percent, .reverse, .clear:
+            return Color.black
+        }
+    }
 }
 
 struct MainView: View {
     
     @State private var totalNumber: String = "0"
+    @State private var previousNumber: String = ""
+    @State private var operation: ButtonStyle?
+    @State private var inTheMiddleOfTyping = false
     
     private let buttonData: [[ButtonStyle]] = [
         [.clear, .reverse, .percent, .divide],
@@ -78,7 +90,6 @@ struct MainView: View {
         [.first, .second, .third, .plus],
         [.zero, .comma, .equal]
     ]
-    
     
     var body: some View {
         ZStack {
@@ -97,19 +108,106 @@ struct MainView: View {
                     HStack {
                         ForEach(line, id: \.self) { row in
                             Button {
-                                // TODO: 버튼 계산 로직 구현
+                                handleButtonPress(row)
                             } label: {
                                 Text(row.buttonName)
                                     .frame(width: row == .zero ? 160 : 80 , height: 80)
                                     .background(row.buttonColor)
                                     .cornerRadius(40)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(row.foreground)
                                     .font(.system(size: 33))
                             }
                         }
                     }
                 }
             }
+        }
+    }
+    
+    private func handleButtonPress(_ button: ButtonStyle) {
+        switch button {
+        case .first, .second, .third, .forth, .fifth, .sixth, .seventh, .eighth, .nineth, .zero, .comma:
+            handleNumberPress(button)
+        case .plus, .minus, .multiple, .divide:
+            handleOperationPress(button)
+        case .equal:
+            handleEqualPress()
+        case .clear:
+            handleClearPress()
+        case .reverse:
+            handleReversePress()
+        case .percent:
+            handlePercentPress()
+        }
+    }
+    
+    private func handleNumberPress(_ button: ButtonStyle) {
+        let number = button.buttonName
+        if inTheMiddleOfTyping {
+            totalNumber += number
+        } else {
+            totalNumber = number
+            inTheMiddleOfTyping = true
+        }
+    }
+    
+    private func handleOperationPress(_ button: ButtonStyle) {
+        previousNumber = totalNumber
+        operation = button
+        inTheMiddleOfTyping = false
+    }
+    
+    private func handleEqualPress() {
+        guard let operation = operation,
+              let previousValue = Double(previousNumber),
+              let currentValue = Double(totalNumber) else {
+            return
+        }
+        
+        var result: Double = 0
+        
+        switch operation {
+        case .plus:
+            result = previousValue + currentValue
+        case .minus:
+            result = previousValue - currentValue
+        case .multiple:
+            result = previousValue * currentValue
+        case .divide:
+            result = previousValue / currentValue
+        default:
+            break
+        }
+        
+        // 데이터 포맷을 수정하는 로직을 추가 합니다.
+        if result.truncatingRemainder(dividingBy: 1) == 0 {
+            totalNumber = String(format: "%.0f", result)
+        } else {
+            // 소숫점 6자리까지 보이게 합니다.
+            totalNumber = String(format: "%.6f", result)
+        }
+        
+        self.operation = nil
+        inTheMiddleOfTyping = false
+    }
+
+    
+    private func handleClearPress() {
+        totalNumber = "0"
+        previousNumber = ""
+        operation = nil
+        inTheMiddleOfTyping = false
+    }
+    
+    private func handleReversePress() {
+        if let value = Double(totalNumber) {
+            totalNumber = String(value * -1)
+        }
+    }
+    
+    private func handlePercentPress() {
+        if let value = Double(totalNumber) {
+            totalNumber = String(value / 100)
         }
     }
 }
